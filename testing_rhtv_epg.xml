@@ -6,11 +6,11 @@
   </channel>
 
 <programme start="20241202000000 +0800" stop="20241202003000 +0800" channel="RHTV.ph">
-    <title>THE BETTER NEWS</title>
+    <title>THE BETTER NEWS (REPLAY)</title>
     <desc></desc>
   </programme>
 <programme start="20241202003000 +0800" stop="20241202010000 +0800" channel="RHTV.ph">
-    <title>TRENDING N VIRAL SHOW</title>
+    <title>TRENDING N VIRAL SHOW (REPLAY)</title>
     <desc></desc>
   </programme>
 <programme start="20241202010000 +0800" stop="20241202020000 +0800" channel="RHTV.ph">
@@ -43,14 +43,14 @@
     <desc></desc>
   </programme>
 <programme start="20241202110000 +0800" stop="20241202120000 +0800" channel="RHTV.ph">
-    <title>MAGANDANG UMAGA PILIPINAS</title>
+    <title>MAGANDANG UMAGA PILIPINAS (REPLAY)</title>
     <desc></desc>
   </programme>
     <programme start="20241202120000 +0800" stop="20241202130000 +0800" channel="RHTV.ph">
     <title>MBC TV NETWORK NEWS</title>
     <desc></desc>
   </programme>
-   <programme start="20241202130000 +0800" stop="20241202133000 +0800" channel="RHTV.ph">
+<programme start="20241202130000 +0800" stop="20241202133000 +0800" channel="RHTV.ph">
     <title>THE BETTER NEWS</title>
     <desc></desc>
   </programme>
@@ -94,16 +94,16 @@
     <title>SHOWBIZ TALK GANERN</title>
     <desc></desc>
   </programme>
-<programme start="20241202230000 +0800" stop="20241203000000 +0800" channel="RHTV.ph">
-    <title>MBC TV NETWORK NEWS</title>
+<programme start="20241202230000 +0800" stop="20241202000000 +0800" channel="RHTV.ph">
+    <title>MBC TV NETWORK NEWS (REPLAY)</title>
     <desc></desc>
   </programme>
 <programme start="20241203000000 +0800" stop="20241203003000 +0800" channel="RHTV.ph">
-    <title>THE BETTER NEWS</title>
+    <title>THE BETTER NEWS (REPLAY)</title>
     <desc></desc>
   </programme>
 <programme start="20241203003000 +0800" stop="20241203010000 +0800" channel="RHTV.ph">
-    <title>TRENDING N VIRAL SHOW</title>
+    <title>TRENDING N VIRAL SHOW (REPLAY)</title>
     <desc></desc>
   </programme>
 <programme start="20241203010000 +0800" stop="20241203020000 +0800" channel="RHTV.ph">
@@ -136,14 +136,14 @@
     <desc></desc>
   </programme>
 <programme start="20241203110000 +0800" stop="20241203120000 +0800" channel="RHTV.ph">
-    <title>MAGANDANG UMAGA PILIPINAS</title>
+    <title>MAGANDANG UMAGA PILIPINAS (REPLAY)</title>
     <desc></desc>
   </programme>
-    <programme start="20241203120000 +0800" stop="20241203130000 +0800" channel="RHTV.ph">
+    <programme start="20241204120000 +0800" stop="20241204130000 +0800" channel="RHTV.ph">
     <title>MBC TV NETWORK NEWS</title>
     <desc></desc>
   </programme>
-   <programme start="20241203130000 +0800" stop="20241203133000 +0800" channel="RHTV.ph">
+<programme start="20241203130000 +0800" stop="20241203133000 +0800" channel="RHTV.ph">
     <title>THE BETTER NEWS</title>
     <desc></desc>
   </programme>
@@ -151,11 +151,11 @@
     <title>TRENDING N VIRAL SHOW</title>
     <desc></desc>
   </programme>
-<programme start="20241202140000 +0800" stop="20241203150000 +0800" channel="RHTV.ph">
+<programme start="2024120340000 +0800" stop="20241203150000 +0800" channel="RHTV.ph">
     <title>RAPIDO HATAW BALITA</title>
     <desc></desc>
   </programme>
-<programme start="20241202150000 +0800" stop="20241203160000 +0800" channel="RHTV.ph">
+<programme start="20241203150000 +0800" stop="20241203160000 +0800" channel="RHTV.ph">
     <title>PUBLIC SERVICE HOUR</title>
     <desc></desc>
   </programme>
@@ -188,7 +188,288 @@
     <desc></desc>
   </programme>
 <programme start="20241203230000 +0800" stop="20241204000000 +0800" channel="RHTV.ph">
+    <title>WEST PHILIPPINE SEA DEPENDERS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204000000 +0800" stop="20241204003000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204003000 +0800" stop="20241204010000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204010000 +0800" stop="20241204020000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204020000 +0800" stop="20241204030000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204030000 +0800" stop="20241204040000 +0800" channel="RHTV.ph">
+    <title>BALITANG PROMDI</title>
+    <desc></desc>
+  </programme>
+  <programme start="20241204040000 +0800" stop="20241204060000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204060000 +0800" stop="20241204080000 +0800" channel="RHTV.ph">
+    <title>DOS POR DOS</title>
+    <desc></desc>
+  </programme>
+   </programme>
+<programme start="20241204080000 +0800" stop="20241204100000 +0800" channel="RHTV.ph">
+    <title>DAMDAMING BAYAN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204100000 +0800" stop="20241204110000 +0800" channel="RHTV.ph">
+    <title>OPERATION TULONG</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204110000 +0800" stop="20241204120000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+    <programme start="20241204120000 +0800" stop="20241204130000 +0800" channel="RHTV.ph">
     <title>MBC TV NETWORK NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204130000 +0800" stop="20241204133000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204133000 +0800" stop="20241204140000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204140000 +0800" stop="20241204150000 +0800" channel="RHTV.ph">
+    <title>RAPIDO HATAW BALITA</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204150000 +0800" stop="20241204160000 +0800" channel="RHTV.ph">
+    <title>PUBLIC SERVICE HOUR</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204160000 +0800" stop="20241204170000 +0800" channel="RHTV.ph">
+    <title>DILG SA DZRH BREAKTIME</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204170000 +0800" stop="20241204183000 +0800" channel="RHTV.ph">
+    <title>BALANSYADO</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204183000 +0800" stop="20241204193000 +0800" channel="RHTV.ph">
+    <title>USAPANG LEGAL</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204193000 +0800" stop="20241204223000 +0800" channel="RHTV.ph">
+    <title>LUNAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204203000 +0800" stop="20241204210000 +0800" channel="RHTV.ph">
+    <title>LUNAS EXTENSION</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204210000 +0800" stop="20241204220000 +0800" channel="RHTV.ph">
+    <title>TOMORROW'S NEWS TONIGHT</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204220000 +0800" stop="20241204230000 +0800" channel="RHTV.ph">
+    <title>SHOWBIZ TALK GANERN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241204230000 +0800" stop="20241205000000 +0800" channel="RHTV.ph">
+    <title>WEST PHILIPPINE SEA DEPENDERS</title>
+    <desc></desc>
+  </programme>
+  <programme start="20241205000000 +0800" stop="20241205003000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205003000 +0800" stop="20241205010000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205010000 +0800" stop="20241205020000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205020000 +0800" stop="20241205030000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205030000 +0800" stop="20241205040000 +0800" channel="RHTV.ph">
+    <title>BALITANG PROMDI</title>
+    <desc></desc>
+  </programme>
+  <programme start="20241205040000 +0800" stop="20241205060000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205060000 +0800" stop="20241205080000 +0800" channel="RHTV.ph">
+    <title>DOS POR DOS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205080000 +0800" stop="20241205100000 +0800" channel="RHTV.ph">
+    <title>DAMDAMING BAYAN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205100000 +0800" stop="20241205110000 +0800" channel="RHTV.ph">
+    <title>OPERATION TULONG</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205110000 +0800" stop="20241205120000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+    <programme start="20241205120000 +0800" stop="20241205130000 +0800" channel="RHTV.ph">
+    <title>MBC TV NETWORK NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205130000 +0800" stop="20241205133000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205133000 +0800" stop="20241205140000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205140000 +0800" stop="20241205150000 +0800" channel="RHTV.ph">
+    <title>RAPIDO HATAW BALITA</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205150000 +0800" stop="20241205160000 +0800" channel="RHTV.ph">
+    <title>PUBLIC SERVICE HOUR</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205160000 +0800" stop="20241205170000 +0800" channel="RHTV.ph">
+    <title>BREAKTIME</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205170000 +0800" stop="20241205183000 +0800" channel="RHTV.ph">
+    <title>BALANSYADO</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205183000 +0800" stop="20241205193000 +0800" channel="RHTV.ph">
+    <title>USAPANG LEGAL</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205193000 +0800" stop="20241205223000 +0800" channel="RHTV.ph">
+    <title>LUNAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205203000 +0800" stop="20241205210000 +0800" channel="RHTV.ph">
+    <title>LUNAS EXTENSION</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205210000 +0800" stop="20241205220000 +0800" channel="RHTV.ph">
+    <title>TOMORROW'S NEWS TONIGHT</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205220000 +0800" stop="20241205223000 +0800" channel="RHTV.ph">
+    <title>AKSYON KABABAIHAN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205223000 +0800" stop="20241205230000 +0800" channel="RHTV.ph">
+    <title>SHOWBIZ TALK GANERN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205230000 +0800" stop="20241206000000 +0800" channel="RHTV.ph">
+    <title>MBC TV NETWORK NEWS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241205000000 +0800" stop="20241205003000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206003000 +0800" stop="20241206010000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW (REPLAY)</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206010000 +0800" stop="20241206020000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206020000 +0800" stop="20241206030000 +0800" channel="RHTV.ph">
+    <title>TBD</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206030000 +0800" stop="20241206040000 +0800" channel="RHTV.ph">
+    <title>BALITANG PROMDI</title>
+    <desc></desc>
+  </programme>
+  <programme start="20241206040000 +0800" stop="20241206060000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206060000 +0800" stop="20241206080000 +0800" channel="RHTV.ph">
+    <title>DOS POR DOS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206080000 +0800" stop="20241206100000 +0800" channel="RHTV.ph">
+    <title>DAMDAMING BAYAN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206100000 +0800" stop="20241206110000 +0800" channel="RHTV.ph">
+    <title>OPERATION TULONG</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206110000 +0800" stop="20241206120000 +0800" channel="RHTV.ph">
+    <title>MAGANDANG UMAGA PILIPINAS (REPLAY)</title>
+    <desc></desc>
+  </programme>
+    <programme start="20241206120000 +0800" stop="20241206130000 +0800" channel="RHTV.ph">
+    <title>MBC TV NETWORK NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206130000 +0800" stop="20241206133000 +0800" channel="RHTV.ph">
+    <title>THE BETTER NEWS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206133000 +0800" stop="20241206140000 +0800" channel="RHTV.ph">
+    <title>TRENDING N VIRAL SHOW</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206140000 +0800" stop="20241206150000 +0800" channel="RHTV.ph">
+    <title>RAPIDO HATAW BALITA</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206150000 +0800" stop="20241206160000 +0800" channel="RHTV.ph">
+    <title>PUBLIC SERVICE HOUR</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206160000 +0800" stop="20241206170000 +0800" channel="RHTV.ph">
+    <title>BREAKTIME</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206170000 +0800" stop="20241206183000 +0800" channel="RHTV.ph">
+    <title>BALANSYADO</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206183000 +0800" stop="20241206193000 +0800" channel="RHTV.ph">
+    <title>USAPANG LEGAL</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206193000 +0800" stop="20241206223000 +0800" channel="RHTV.ph">
+    <title>LUNAS</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206203000 +0800" stop="20241206210000 +0800" channel="RHTV.ph">
+    <title>LUNAS EXTENSION</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206210000 +0800" stop="20241206220000 +0800" channel="RHTV.ph">
+    <title>TOMORROW'S NEWS TONIGHT</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206220000 +0800" stop="20241206230000 +0800" channel="RHTV.ph">
+    <title>SHOWBIZ TALK GANERN</title>
+    <desc></desc>
+  </programme>
+<programme start="20241206230000 +0800" stop="20241206000000 +0800" channel="RHTV.ph">
+    <title>MBC TV NETWORK NEWS (REPLAY)</title>
     <desc></desc>
   </programme>
 </tv>
