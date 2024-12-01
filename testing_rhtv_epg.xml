@@ -183,7 +183,7 @@
     <title>TOMORROW'S NEWS TONIGHT</title>
     <desc></desc>
   </programme>
-<programme start="20241203220000 +0800" stop="20241203230000 +0800" channel="RHTV.ph">
+<programme start="20241203220000 +0800" stop="20241202330000 +0800" channel="RHTV.ph">
     <title>SHOWBIZ TALK GANERN</title>
     <desc></desc>
   </programme>
@@ -372,7 +372,7 @@
     <title>AKSYON KABABAIHAN</title>
     <desc></desc>
   </programme>
-<programme start="20241205223000 +0800" stop="20241205230000 +0800" channel="RHTV.ph">
+<programme start="20241205220300 +0800" stop="20241205230000 +0800" channel="RHTV.ph">
     <title>SHOWBIZ TALK GANERN</title>
     <desc></desc>
   </programme>
@@ -468,7 +468,7 @@
     <title>SHOWBIZ TALK GANERN</title>
     <desc></desc>
   </programme>
-<programme start="20241206230000 +0800" stop="20241206000000 +0800" channel="RHTV.ph">
+    <programme start="20241206230000 +0800" stop="20241207000000 +0800" channel="RHTV.ph">
     <title>MBC TV NETWORK NEWS (REPLAY)</title>
     <desc></desc>
   </programme>
