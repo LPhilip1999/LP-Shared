@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+
+  <channel id="GMA-HW.ph"">
+    <display-name>GMA Temp</display-name>
+  </channel>
+  <channel id="GTV-HW.ph"">
+    <display-name>GMA Temp</display-name>
+  </channel>
+
+<programme start="20250417060000 +0800" stop="20250417073000 +0800" channel="GMA-HW.ph">
+    <title>The Story of Jesus for Children</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417073000 +0800" stop="20250417083000 +0800" channel="GMA-HW.ph">
+    <title>Flushed Away</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417083000 +0800" stop="20250417100000 +0800" channel="GMA-HW.ph">
+    <title>Alvin and the Chipmunks: The Roadchip</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417100000 +0800" stop="20250417113000 +0800" channel="GMA-HW.ph">
+    <title>Space Jam: A New Legacy</title>
+    <desc></desc>
+  </programme>
+
+<programme start="20250417113000 +0800" stop="20250417133000 +0800" channel="GMA-HW.ph">
+    <title>Noah</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417133000 +0800" stop="20250417143000 +0800" channel="GMA-HW.ph">
+    <title>My Mother, My Story: Jillian Ward</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417143000 +0800" stop="20250417173000 +0800" channel="GMA-HW.ph">
+    <title>The Chosen</title>
+    <desc></desc>
+  </programme>
+
+<programme start="20250417173000 +0800" stop="20250417183000 +0800" channel="GMA-HW.ph">
+    <title>The Atom Araullo Specials: Hingang Malalim</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417183000 +0800" stop="20250417193000 +0800" channel="GMA-HW.ph">
+    <title>24 Oras</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417193000 +0800" stop="20250417231500 +0800" channel="GMA-HW.ph">
+    <title>The Ten Commandments</title>
+    <desc></desc>
+  </programme>
+
+<programme start="20250417231500 +0800" stop="20250418060000 +0800" channel="GMA-HW.ph">
+    <title>i-Witness: Doctor on a Boat</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418060000 +0800" stop="20250418073000 +0800" channel="GMA-HW.ph">
+    <title>Magdalena</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250418073000 +0800" stop="20250418080000 +0800" channel="GMA-HW.ph">
+    <title>Power To Unite with Elvira</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418080000 +0800" stop="20250418090000 +0800" channel="GMA-HW.ph">
+    <title>Joseph: King of Dreams</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418090000 +0800" stop="20250418103000 +0800" channel="GMA-HW.ph">
+    <title>Sherlock Gnomes</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418103000 +0800" stop="20250418120000 +0800" channel="GMA-HW.ph">
+    <title>Firehouse Dog</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418120000 +0800" stop="20250418140000 +0800" channel="GMA-HW.ph">
+    <title>Siete Palabras</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418140000 +0800" stop="20250418150000 +0800" channel="GMA-HW.ph">
+    <title>My Mother, My Story: Aiai delas Alas</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250418150000 +0800" stop="20250418173000 +0800" channel="GMA-HW.ph">
+    <title>The Chosen</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250418173000 +0800" stop="20250418183000 +0800" channel="GMA-HW.ph">
+    <title>Tanikala: Preso</title>
+    <desc></desc>
+  </programme>  
+ 
+<programme start="20250418183000 +0800" stop="20250418193000 +0800" channel="GMA-HW.ph">
+    <title>24 Oras</title>
+    <desc></desc>
+  </programme>  
+ 
+<programme start="20250418193000 +0800" stop="20250418213000 +0800" channel="GMA-HW.ph">
+    <title>Family Matters</title>
+    <desc></desc>
+  </programme>  
+ 
+<programme start="20250418213000 +0800" stop="20250418231500 +0800" channel="GMA-HW.ph">
+    <title>LSS</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250418231500 +0800" stop="20250419060000 +0800" channel="GMA-HW.ph">
+    <title>i-Witness: Sa Mga Kamay ng Oras</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419060000 +0800" stop="20250419073000 +0800" channel="GMA-HW.ph">
+    <title>Jesus</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419073000 +0800" stop="20250419093000 +0800" channel="GMA-HW.ph">
+    <title>Himig Panalangin</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419093000 +0800" stop="20250419103000 +0800" channel="GMA-HW.ph">
+    <title>Dr. Seuss' The Lorax</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250419103000 +0800" stop="20250419120000 +0800" channel="GMA-HW.ph">
+    <title>Escape from Mr. Lemoncello's Library</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419120000 +0800" stop="20250419140000 +0800" channel="GMA-HW.ph">
+    <title>Ben-Hur</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419140000 +0800" stop="20250419150000 +0800" channel="GMA-HW.ph">
+    <title>My Story: Bea Alonzo</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250419150000 +0800" stop="20250419173000 +0800" channel="GMA-HW.ph">
+    <title>The Chosen</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419173000 +0800" stop="20250419183000 +0800" channel="GMA-HW.ph">
+    <title>Pinas Sarap: Paombong</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250419183000 +0800" stop="20250419193000 +0800" channel="GMA-HW.ph">
+    <title>24 Oras Weekend</title>
+    <desc></desc>
+  </programme>  
+
+  <programme start="20250419193000 +0800" stop="20250419231500 +0800" channel="GMA-HW.ph">
+    <title>Titanic</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250419231500 +0800" stop="20250420053000 +0800" channel="GMA-HW.ph">
+    <title>i-Witness: Mga Bakanteng Selda</title>
+    <desc></desc>
+  </programme>  
+
+
+
+<programme start="20250417060000 +0800" stop="20250417090000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417090000 +0800" stop="20250417120000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417120000 +0800" stop="20250417150000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417150000 +0800" stop="20250417180000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417180000 +0800" stop="20250417210000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417210000 +0800" stop="20250418060000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418060000 +0800" stop="20250418090000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418090000 +0800" stop="20250418120000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418120000 +0800" stop="20250418150000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418150000 +0800" stop="20250418180000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418180000 +0800" stop="20250418210000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418210000 +0800" stop="20250419060000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419060000 +0800" stop="20250419090000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419090000 +0800" stop="20250419120000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419120000 +0800" stop="20250419150000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419150000 +0800" stop="20250419180000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419180000 +0800" stop="20250419210000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419210000 +0800" stop="20250420053000 +0800" channel="GTV-HW.ph">
+    <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+</tv>
