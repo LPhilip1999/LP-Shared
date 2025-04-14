@@ -5,7 +5,7 @@
     <display-name>GMA Temp</display-name>
   </channel>
   <channel id="GTV-HW.ph"">
-    <display-name>GMA Temp</display-name>
+    <display-name>GTV Temp</display-name>
   </channel>
 
 <programme start="20250417060000 +0800" stop="20250417073000 +0800" channel="GMA-HW.ph">
