@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
 
-  <channel id="GMA-HW.ph"">
+  <channel id="GMA-HW.ph">
     <display-name>GMA Temp</display-name>
   </channel>
-  <channel id="GTV-HW.ph"">
+  <channel id="GTV-HW.ph">
     <display-name>GTV Temp</display-name>
+  </channel>
+  <channel id="KapCha-HW.ph">
+    <display-name>KapCha Temp</display-name>
   </channel>
 
 <programme start="20250417060000 +0800" stop="20250417073000 +0800" channel="GMA-HW.ph">
@@ -272,6 +275,167 @@
   
 <programme start="20250419210000 +0800" stop="20250420053000 +0800" channel="GTV-HW.ph">
     <title>Regular programming resumes on April 20</title>
+    <desc></desc>
+  </programme>
+  
+  
+<programme start="20250417060000 +0800" stop="20250417063000 +0800" channel="KapCha-HW.ph">
+    <title>Superbook</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417063000 +0800" stop="20250417080000 +0800" channel="KapCha-HW.ph">
+    <title>Beauty and the Beast</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417080000 +0800" stop="20250417100000 +0800" channel="KapCha-HW.ph">
+    <title>Terra Formars</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417100000 +0800" stop="20250417120000 +0800" channel="KapCha-HW.ph">
+    <title>Ride On</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417100000 +0800" stop="20250417140000 +0800" channel="KapCha-HW.ph">
+    <title>Girl Boy Bakla Tomboy</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417140000 +0800" stop="20250417153000 +0800" channel="KapCha-HW.ph">
+    <title>Shotgun Wedding</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417153000 +0800" stop="20250417170000 +0800" channel="KapCha-HW.ph">
+    <title>Berathe</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417170000 +0800" stop="20250417180000 +0800" channel="KapCha-HW.ph">
+    <title>Celebration of the Last Supper</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417180000 +0800" stop="20250417200000 +0800" channel="KapCha-HW.ph">
+    <title>Spencer</title>
+    <desc></desc>
+  </programme>
+
+<programme start="20250417200000 +0800" stop="20250417220000 +0800" channel="KapCha-HW.ph">
+    <title>Born to Love You</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250417220000 +0800" stop="20250418060000 +0800" channel="KapCha-HW.ph">
+    <title>Milan</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418060000 +0800" stop="20250418063000 +0800" channel="KapCha-HW.ph">
+    <title>Superbook</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418063000 +0800" stop="20250418080000 +0800" channel="KapCha-HW.ph">
+    <title>The New Adventures of Aladin</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418080000 +0800" stop="20250418100000 +0800" channel="KapCha-HW.ph">
+    <title>Max Steel</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418100000 +0800" stop="20250418120000 +0800" channel="KapCha-HW.ph">
+    <title>No Way Up</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418120000 +0800" stop="20250418150000 +0800" channel="KapCha-HW.ph">
+    <title>Seven Last Words</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418150000 +0800" stop="20250418160000 +0800" channel="KapCha-HW.ph">
+    <title>Veneration of the Cross</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418160000 +0800" stop="20250418180000 +0800" channel="KapCha-HW.ph">
+    <title>Young Messiah</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418180000 +0800" stop="20250418200000 +0800" channel="KapCha-HW.ph">
+    <title>Papa Francisco</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418200000 +0800" stop="20250418220000 +0800" channel="KapCha-HW.ph">
+    <title>A Moment in Time</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250418220000 +0800" stop="20250419060000 +0800" channel="KapCha-HW.ph">
+    <title>Madrasta</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419060000 +0800" stop="20250419063000 +0800" channel="KapCha-HW.ph">
+    <title>Superbook</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419063000 +0800" stop="20250419080000 +0800" channel="KapCha-HW.ph">
+    <title>The Little Witch</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419080000 +0800" stop="20250419100000 +0800" channel="KapCha-HW.ph">
+    <title>Power Rangers</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419100000 +0800" stop="20250419120000 +0800" channel="KapCha-HW.ph">
+    <title>Guardians of the Bomb</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419120000 +0800" stop="20250419140000 +0800" channel="KapCha-HW.ph">
+    <title>Fantastica</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419140000 +0800" stop="20250419160000 +0800" channel="KapCha-HW.ph">
+    <title>The Hunger Games: The Ballad of Songbirds and Shakes</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419160000 +0800" stop="20250419180000 +0800" channel="KapCha-HW.ph">
+    <title>Operation Fortune</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419180000 +0800" stop="20250419200000 +0800" channel="KapCha-HW.ph">
+    <title>The Good Life</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419200000 +0800" stop="20250419220000 +0800" channel="KapCha-HW.ph">
+    <title>Maybe This Time</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419220000 +0800" stop="20250419230000 +0800" channel="KapCha-HW.ph">
+    <title>Easter Vigil Mass</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250419230000 +0800" stop="20250420060000 +0800" channel="KapCha-HW.ph">
+    <title>Midnight Sun</title>
     <desc></desc>
   </programme>
   
