@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+
+  <channel id="GMA-rip.ph">
+    <display-name>GMA Temp</display-name>
+  </channel>
+  <channel id="GTV-rip.ph">
+    <display-name>GTV Temp</display-name>
+  </channel>
+  <channel id="KapCha-rip.ph">
+    <display-name>KapCha Temp</display-name>
+  </channel>
+  <channel id="A2Z-rip.ph">
+    <display-name>A2Z Temp</display-name>
+  </channel>  
+  <channel id="ALLTV-rip.ph">
+    <display-name>ALLTV Temp</display-name>
+  </channel>
+
+<!-- ALLTV SKEDS -->
+<!-- Monday -->
+<programme start="20250421080000 +0800" stop="20250421090000 +0800" channel="ALLTV-rip.ph">
+    <title>Calla Lily</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250421090000 +0800" stop="20250421100000 +0800" channel="ALLTV-rip.ph">
+    <title>Magandang Buhay</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250421100000 +0800" stop="20250421110000 +0800" channel="ALLTV-rip.ph">
+    <title>Sarah, The Teen Princess</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250421110000 +0800" stop="20250421120000 +0800" channel="ALLTV-rip.ph">
+    <title>Hawak Kamay</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421120000 +0800" stop="20250421143000 +0800" channel="ALLTV-rip.ph">
+    <title>It's Showtime</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421143000 +0800" stop="20250421150000 +0800" channel="ALLTV-rip.ph">
+    <title>Ina, Kapatid, Anak</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421150000 +0800" stop="20250421154500 +0800" channel="ALLTV-rip.ph">
+    <title>Beautiful Affair</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421154500 +0800" stop="20250421164500 +0800" channel="ALLTV-rip.ph">
+    <title>Bagito</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421164500 +0800" stop="20250421170000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol Express</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421170000 +0800" stop="20250421173000 +0800" channel="ALLTV-rip.ph">
+    <title>Basta't Kasama Kita</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421173000 +0800" stop="20250421173000 +0800" channel="ALLTV-rip.ph">
+    <title>ALLTV News: Mabilis Lang 'To</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421184500 +0800" stop="20250421183000 +0800" channel="ALLTV-rip.ph">
+    <title>Goin Bulilit</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421183000 +0800" stop="20250421200000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421200000 +0800" stop="20250421204500 +0800" channel="ALLTV-rip.ph">
+    <title>Dolce Almore</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250421204500 +0800" stop="20250421213000 +0800" channel="ALLTV-rip.ph">
+    <title>La Vida Lena</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421213000 +0800" stop="20250421221500 +0800" channel="ALLTV-rip.ph">
+    <title>The General's Daughter</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421221500 +0800" stop="20250421224500 +0800" channel="ALLTV-rip.ph">
+    <title>River Where The Moon Rises</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250421224500 +0800" stop="20250422080000 +0800" channel="ALLTV-rip.ph">
+    <title>OFF-AIR</title>
+    <desc></desc>
+  </programme>  
+  
+<!-- Tuesday -->
+<programme start="20250422080000 +0800" stop="20250422090000 +0800" channel="ALLTV-rip.ph">
+    <title>Calla Lily</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250422090000 +0800" stop="20250422100000 +0800" channel="ALLTV-rip.ph">
+    <title>Magandang Buhay</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250422100000 +0800" stop="20250422110000 +0800" channel="ALLTV-rip.ph">
+    <title>Sarah, The Teen Princess</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250422110000 +0800" stop="20250422120000 +0800" channel="ALLTV-rip.ph">
+    <title>Hawak Kamay</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422120000 +0800" stop="20250422143000 +0800" channel="ALLTV-rip.ph">
+    <title>It's Showtime</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422143000 +0800" stop="20250422150000 +0800" channel="ALLTV-rip.ph">
+    <title>Ina, Kapatid, Anak</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422150000 +0800" stop="20250422154500 +0800" channel="ALLTV-rip.ph">
+    <title>Beautiful Affair</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422154500 +0800" stop="20250422164500 +0800" channel="ALLTV-rip.ph">
+    <title>Bagito</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422164500 +0800" stop="20250422170000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol Express</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422170000 +0800" stop="20250422173000 +0800" channel="ALLTV-rip.ph">
+    <title>Basta't Kasama Kita</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422173000 +0800" stop="20250422173000 +0800" channel="ALLTV-rip.ph">
+    <title>ALLTV News: Mabilis Lang 'To</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422184500 +0800" stop="20250422183000 +0800" channel="ALLTV-rip.ph">
+    <title>Goin Bulilit</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422183000 +0800" stop="20250422200000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422200000 +0800" stop="20250422204500 +0800" channel="ALLTV-rip.ph">
+    <title>Dolce Almore</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250422204500 +0800" stop="20250422213000 +0800" channel="ALLTV-rip.ph">
+    <title>La Vida Lena</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422213000 +0800" stop="20250422221500 +0800" channel="ALLTV-rip.ph">
+    <title>The General's Daughter</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422221500 +0800" stop="20250422224500 +0800" channel="ALLTV-rip.ph">
+    <title>River Where The Moon Rises</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250422224500 +0800" stop="20250423080000 +0800" channel="ALLTV-rip.ph">
+    <title>OFF-AIR</title>
+    <desc></desc>
+  </programme>  
+  
+<!-- Wednesday -->
+<programme start="20250423080000 +0800" stop="20250423090000 +0800" channel="ALLTV-rip.ph">
+    <title>Calla Lily</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250423090000 +0800" stop="20250423100000 +0800" channel="ALLTV-rip.ph">
+    <title>Magandang Buhay</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250423100000 +0800" stop="20250423110000 +0800" channel="ALLTV-rip.ph">
+    <title>Sarah, The Teen Princess</title>
+    <desc></desc>
+  </programme>
+  
+<programme start="20250423110000 +0800" stop="20250423120000 +0800" channel="ALLTV-rip.ph">
+    <title>Hawak Kamay</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423120000 +0800" stop="20250423143000 +0800" channel="ALLTV-rip.ph">
+    <title>It's Showtime</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423143000 +0800" stop="20250423150000 +0800" channel="ALLTV-rip.ph">
+    <title>Ina, Kapatid, Anak</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423150000 +0800" stop="20250423154500 +0800" channel="ALLTV-rip.ph">
+    <title>Beautiful Affair</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423154500 +0800" stop="20250423164500 +0800" channel="ALLTV-rip.ph">
+    <title>Bagito</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423164500 +0800" stop="20250423170000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol Express</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423170000 +0800" stop="20250423173000 +0800" channel="ALLTV-rip.ph">
+    <title>Basta't Kasama Kita</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423173000 +0800" stop="20250423173000 +0800" channel="ALLTV-rip.ph">
+    <title>ALLTV News: Mabilis Lang 'To</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423184500 +0800" stop="20250423183000 +0800" channel="ALLTV-rip.ph">
+    <title>Goin Bulilit</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423183000 +0800" stop="20250423200000 +0800" channel="ALLTV-rip.ph">
+    <title>TV Patrol</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423200000 +0800" stop="20250423204500 +0800" channel="ALLTV-rip.ph">
+    <title>Dolce Almore</title>
+    <desc></desc>
+  </programme>  
+
+<programme start="20250423204500 +0800" stop="20250423213000 +0800" channel="ALLTV-rip.ph">
+    <title>La Vida Lena</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423213000 +0800" stop="20250423221500 +0800" channel="ALLTV-rip.ph">
+    <title>The General's Daughter</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423221500 +0800" stop="20250423224500 +0800" channel="ALLTV-rip.ph">
+    <title>River Where The Moon Rises</title>
+    <desc></desc>
+  </programme>  
+  
+<programme start="20250423224500 +0800" stop="20250424080000 +0800" channel="ALLTV-rip.ph">
+    <title>OFF-AIR</title>
+    <desc></desc>
+  </programme>  
+  
+</tv>
