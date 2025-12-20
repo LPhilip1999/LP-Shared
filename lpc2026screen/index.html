@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<link rel="stylesheet" type="text/css" href="font/font.css" crossorigin>
+	
+<head>
+<title>COUNTDOWN 2026</title>
+</head>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+        }
+        
+     .bg-page-temp {
+     width: 1280px;
+     height: 720px;
+     background-color: green;
+     }   
+     
+     .timerfont {
+     position: absolute;
+      top: 370px;
+      left: 310px;
+      width: 600px;
+      font-size: 150px;
+      align-items: center;
+        justify-content: center;
+        text-align: center;
+      background-color:;
+     }
+</style>
+
+<body>
+<div class=bg-page-temp>
+
+<img src="image/COUNTDOWN TO 2026 animated.jpg" width="1280px">
+
+<div class="timerfont" div id="countdown">
+00:00:00
+</div>
+		
+ </div>
+
+  <script>
+    // === Set your custom target date and time here ===
+    // Format: YYYY, MM (0-based), DD, HH, MM, SS
+    // Example: 2025, 9, 29, 17, 0, 0  --> 2025-10-29 17:00:00 (October is month 9)
+    const targetDate = new Date(2026, 0, 1, 0, 0, 0); // <-- SET YOUR TARGET HERE
+    // ================================================
+
+    // Set your custom end message here
+    const endMessage = "NOW";
+
+    function updateCountdown() {
+      const now = new Date();
+      let diff = targetDate - now;
+      if (diff < 0) diff = 0;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      let display;
+      if (diff <= 3600 * 1000) {
+        // Last hour: MM:SS
+        display =
+          `${(minutes + hours * 60).toString().padStart(2, '0')}:` +
+          `${seconds.toString().padStart(2, '0')}`;
+      } else {
+        // More than one hour: HH:MM:SS
+        display =
+          `${hours.toString().padStart(2, '0')}:` +
+          `${minutes.toString().padStart(2, '0')}:` +
+          `${seconds.toString().padStart(2, '0')}`;
+      }
+
+      if (diff === 0) {
+        document.getElementById('countdown').textContent = endMessage;
+        // Stops automatically, no restart
+      } else {
+        document.getElementById('countdown').textContent = display;
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+
+    updateCountdown();
+  </script>
+
+</body>
+  </html>
