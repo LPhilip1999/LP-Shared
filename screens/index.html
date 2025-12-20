@@ -17,8 +17,8 @@
       height: var(--height);
       overflow: hidden;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #000;
       color: #fff;
+      background: #000;
     }
 
     .bg-page-temp {
@@ -26,14 +26,12 @@
       width: var(--width);
       height: var(--height);
       overflow: hidden;
-      display: block;
     }
 
     .bg-page-temp img {
       display: block;
       width: 100%;
       height: auto;
-      max-height: 100%;
       object-fit: cover;
     }
 
@@ -47,13 +45,7 @@
       width: 100%;
     }
 
-    .days {
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: rgba(255,255,255,0.95);
-    }
-
+    /* Timer: no background text/label, only HH:MM:SS */
     .timerfont {
       display: inline-block;
       font-size: 120px;
@@ -62,9 +54,10 @@
       font-weight: 700;
       color: #ffffff;
       text-align: center;
-      padding: 4px 12px;
-      background: rgba(0,0,0,0.35);
-      border-radius: 8px;
+      padding: 0;
+      background: transparent; /* explicitly transparent */
+      border-radius: 0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
 
     /* small responsive tweak if viewport smaller than 1280 */
@@ -74,70 +67,47 @@
         height: 100vh;
       }
       .timerfont { font-size: 8vw; }
-      .days { font-size: 2.4vw; }
     }
   </style>
 </head>
 <body>
   <div class="bg-page-temp">
-    <!-- index.html is inside screens/, so the image in the same folder should be referenced directly -->
+    <!-- Image is in the same folder (screens/) so reference directly -->
     <img src="1COUNTDOWNtest.jpg" alt="Countdown to 2026 background" width="1280" height="720">
     <div class="timer-wrap" aria-live="polite">
-      <div class="days" id="daysLabel" aria-hidden="true"></div>
       <div class="timerfont" id="countdown">00:00:00</div>
     </div>
   </div>
 
   <script>
-    // Target: New Year 2026 at local midnight (Jan 1, 2026 00:00:00 local time)
-    const target = new Date(2026, 0, 1, 0, 0, 0); // month is 0-indexed (0 = January)
+    // New Year 2026 local midnight (Jan 1, 2026 00:00:00)
+    const target = new Date(2026, 0, 1, 0, 0, 0);
 
     const countdownEl = document.getElementById('countdown');
-    const daysLabel = document.getElementById('daysLabel');
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function update() {
       const now = new Date();
-      let diff = target - now;
+      let diffMs = target - now;
 
-      if (diff <= 0) {
-        // It's 2026 (or past) — show 00:00:00 and stop updates
+      if (diffMs <= 0) {
         countdownEl.textContent = '00:00:00';
-        daysLabel.textContent = '';
-        clearInterval(timerInterval);
+        clearInterval(intervalId);
         return;
       }
 
-      const msPerSecond = 1000;
-      const msPerMinute = msPerSecond * 60;
-      const msPerHour = msPerMinute * 60;
-      const msPerDay = msPerHour * 24;
-
-      const days = Math.floor(diff / msPerDay);
-      diff -= days * msPerDay;
-
-      const hours = Math.floor(diff / msPerHour);
-      diff -= hours * msPerHour;
-
-      const minutes = Math.floor(diff / msPerMinute);
-      diff -= minutes * msPerMinute;
-
-      const seconds = Math.floor(diff / msPerSecond);
-
-      // Show days as separate label if more than 0 days remain
-      if (days > 0) {
-        daysLabel.textContent = days + (days === 1 ? ' day' : ' days') + ' remaining';
-      } else {
-        daysLabel.textContent = '';
-      }
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const hours = Math.floor(totalSeconds / 3600); // total hours (may exceed 24)
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
 
       countdownEl.textContent = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
     }
 
-    // Initial update then tick every second
+    // initial render + tick every second
     update();
-    const timerInterval = setInterval(update, 1000);
+    const intervalId = setInterval(update, 1000);
   </script>
 </body>
 </html>
