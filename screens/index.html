@@ -1,48 +1,43 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	<link rel="stylesheet" type="text/css" href="font/font.css" crossorigin>
-	
 <head>
-<title>COUNTDOWN 2026</title>
-</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>COUNTDOWN 2026</title>
+  <link rel="stylesheet" type="text/css" href="font/font.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            width: 1280px;
-            height: 720px;
-            overflow: hidden;
-        }
-        
-     .bg-page-temp {
-     width: 1280px;
-     height: 720px;
-     background-color: ;
-     }   
-     
-     .timerfont {
-     position: absolute;
+    .bg-page-temp {
+      width: 1280px;
+      height: 720px;
+      background-color: ;
+    }
+
+    .timerfont {
+      position: absolute;
       top: 390px;
       left: 335px;
       width: 600px;
       font-size: 120px;
       align-items: center;
-        justify-content: center;
-        text-align: center;
+      justify-content: center;
+      text-align: center;
       background-color:;
-     }
-</style>
-
+    }
+  </style>
+</head>
 <body>
-<div class=bg-page-temp>
-<img src="screens/1COUNTDOWNtest.jpg" alt="Countdown to 2026" width="1280" style="max-width:100%;height:auto;display:block;">
-<div class="timerfont">
-00:00:00
-</div>
-		
- </div>
-
+  <div class="bg-page-temp">
+    <!-- index.html is in screens/, so the image in the same folder should be referenced directly: -->
+    <img src="1COUNTDOWNtest.jpg" alt="Countdown to 2026" width="1280" style="max-width:100%;height:auto;display:block;">
+    <div class="timerfont">00:00:00</div>
+  </div>
 </body>
 </html>
