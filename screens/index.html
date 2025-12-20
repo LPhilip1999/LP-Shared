@@ -4,40 +4,140 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=1280, initial-scale=1">
   <title>COUNTDOWN 2026</title>
-  <link rel="stylesheet" type="text/css" href="font/font.css">
+  <link rel="stylesheet" type="text/css" href="font/font.css" crossorigin>
   <style>
-    body {
+    :root {
+      --width: 1280px;
+      --height: 720px;
+    }
+    html, body {
       margin: 0;
       padding: 0;
-      width: 1280px;
-      height: 720px;
+      width: var(--width);
+      height: var(--height);
       overflow: hidden;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #000;
+      color: #fff;
     }
 
     .bg-page-temp {
-      width: 1280px;
-      height: 720px;
-      background-color: ;
+      position: relative;
+      width: var(--width);
+      height: var(--height);
+      overflow: hidden;
+      display: block;
+    }
+
+    .bg-page-temp img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .timer-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+      text-align: center;
+      pointer-events: none;
+      width: 100%;
+    }
+
+    .days {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.95);
     }
 
     .timerfont {
-      position: absolute;
-      top: 390px;
-      left: 335px;
-      width: 600px;
+      display: inline-block;
       font-size: 120px;
-      align-items: center;
-      justify-content: center;
+      line-height: 1;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #ffffff;
       text-align: center;
-      background-color:;
+      padding: 4px 12px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 8px;
+    }
+
+    /* small responsive tweak if viewport smaller than 1280 */
+    @media (max-width: 1280px) {
+      html, body {
+        width: 100%;
+        height: 100vh;
+      }
+      .timerfont { font-size: 8vw; }
+      .days { font-size: 2.4vw; }
     }
   </style>
 </head>
 <body>
   <div class="bg-page-temp">
-    <!-- index.html is in screens/, so the image in the same folder should be referenced directly: -->
-    <img src="1COUNTDOWNtest.jpg" alt="Countdown to 2026" width="1280" style="max-width:100%;height:auto;display:block;">
-    <div class="timerfont">00:00:00</div>
+    <!-- index.html is inside screens/, so the image in the same folder should be referenced directly -->
+    <img src="1COUNTDOWNtest.jpg" alt="Countdown to 2026 background" width="1280" height="720">
+    <div class="timer-wrap" aria-live="polite">
+      <div class="days" id="daysLabel" aria-hidden="true"></div>
+      <div class="timerfont" id="countdown">00:00:00</div>
+    </div>
   </div>
+
+  <script>
+    // Target: New Year 2026 at local midnight (Jan 1, 2026 00:00:00 local time)
+    const target = new Date(2026, 0, 1, 0, 0, 0); // month is 0-indexed (0 = January)
+
+    const countdownEl = document.getElementById('countdown');
+    const daysLabel = document.getElementById('daysLabel');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function update() {
+      const now = new Date();
+      let diff = target - now;
+
+      if (diff <= 0) {
+        // It's 2026 (or past) — show 00:00:00 and stop updates
+        countdownEl.textContent = '00:00:00';
+        daysLabel.textContent = '';
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const msPerSecond = 1000;
+      const msPerMinute = msPerSecond * 60;
+      const msPerHour = msPerMinute * 60;
+      const msPerDay = msPerHour * 24;
+
+      const days = Math.floor(diff / msPerDay);
+      diff -= days * msPerDay;
+
+      const hours = Math.floor(diff / msPerHour);
+      diff -= hours * msPerHour;
+
+      const minutes = Math.floor(diff / msPerMinute);
+      diff -= minutes * msPerMinute;
+
+      const seconds = Math.floor(diff / msPerSecond);
+
+      // Show days as separate label if more than 0 days remain
+      if (days > 0) {
+        daysLabel.textContent = days + (days === 1 ? ' day' : ' days') + ' remaining';
+      } else {
+        daysLabel.textContent = '';
+      }
+
+      countdownEl.textContent = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+    }
+
+    // Initial update then tick every second
+    update();
+    const timerInterval = setInterval(update, 1000);
+  </script>
 </body>
 </html>
