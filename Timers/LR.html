@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown Clock (Love Radio Manila)</title>
+    <style>
+        @font-face {
+            font-family: "MyCustomFont";
+            src: url("./fonts/Omnes-Black.woff") format("truetype"),
+                 url("./font/Omnes-Black.woff") format("woff");
+            font-style: normal;
+            font-display: swap; /* makes text visible while font loads */
+        }    	
+   
+        html, body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            background: ;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1280px;
+            height: 720px;
+        }
+        .timer-full {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .flex-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 180px;
+            background-color: #D70109;
+            border-radius: 20px;
+            font-family: "MyCustomFont", "Lucida Console", monospace;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .digit {
+            font-size: 90px;
+            color: #FF9600;
+            font-weight: bold;
+            margin-bottom: 1px;
+            margin-top: 0;
+            line-height: 1;
+        }
+        .digit_name {
+            font-size: 34px;
+            color: #FFFFFF;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-full" id="timer-full">
+        <div class="flex-box" id="days-box">
+            <h1 id="day" class="digit">0</h1>
+            <h2 class="digit_name">DAYS</h2>
+        </div>
+        <div class="flex-box" id="hours-box">
+            <h1 id="hour" class="digit">0</h1>
+            <h2 class="digit_name">HOURS</h2>
+        </div>
+        <div class="flex-box" id="min-box">
+            <h1 id="min" class="digit">0</h1>
+            <h2 class="digit_name">MINUTES</h2>
+        </div>
+        <div class="flex-box" id="sec-box">
+            <h1 id="sec" class="digit">0</h1>
+            <h2 class="digit_name">SECONDS</h2>
+        </div>
+    </div>
+
+    <script>
+     // Select your target time (e.g "Feb 14, 2025 00:00:00"
+        var target_mili_sec = new Date("Jan 1, 2026 00:00:00").getTime();
+
+        function timer() {
+            var now_mili_sec = new Date().getTime();
+            var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+            if (remaining_sec < 0) remaining_sec = 0;
+
+            var day = Math.floor(remaining_sec / (3600 * 24));
+            var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+            var min = Math.floor((remaining_sec % 3600) / 60);
+            var sec = Math.floor(remaining_sec % 60);
+
+            // Hide/show days box if less than 24h left
+            var daysBox = document.getElementById("days-box");
+            if (remaining_sec < 86400) {
+                daysBox.style.display = "none";
+            } else {
+                daysBox.style.display = "flex";
+                document.getElementById("day").textContent = day;
+            }
+
+
+            document.getElementById("hour").textContent = hour;
+            document.getElementById("min").textContent = min;
+            document.getElementById("sec").textContent = sec;
+        }
+
+        timer();
+        setInterval(timer, 1000);
+    </script>
+</body>
+  </html>
