@@ -1,75 +1,80 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	
 <head>
-<title>COUNTDOWN 2026</title>
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>COUNTDOWN 2026</title>
 
-    <style>
-   
-@font-face {
+  <style>
+    @font-face {
       font-family: 'CountdownFont';
       src: local('CountdownFont'),
            url('fonts/MADETOMMY-Bold.woff') format('woff');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
-    } 	
-   
-        body {
-            margin: 0;
-            padding: 0;
-            width: 1280px;
-            height: 720px;
-            overflow: hidden;
-        }
-        
-     .bg-page-temp {
-     width: 1280px;
-     height: 720px;
-     background-color: green;
-     }   
-     
-     .timerfont {
-     position: absolute;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+    }
+
+    .bg-page-temp {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      background-color: green;
+      overflow: hidden;
+    }
+
+    /* Background video */
+    #bgvideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .timerfont {
+      position: absolute;
       top: 364px;
       left: 136px;
       width: 1000px;
       font-size: 150px;
       color: purple;
-      font-family: CountdownFont;
+      font-family: CountdownFont, sans-serif;
+      display: flex;
       align-items: center;
-        justify-content: center;
-        text-align: center;
-      background-color:;
-     }
-</style>
-
+      justify-content: center;
+      text-align: center;
+      z-index: 1; /* keep the timer above the video */
+    }
+  </style>
+</head>
 <body>
-<div class=bg-page-temp>
+  <div class="bg-page-temp">
+    <div class="timerfont" id="countdown">
+      00:00:00
+    </div>
 
-<div class="timerfont" div id="countdown">
-00:00:00
-</div>
-	
-<!-- The video tag with autoplay, loop, muted, and without controls -->
-<video autoplay loop muted style="width:100%; height:auto;">
-  <source src="2026CoundownAnimated.mp4" type="video/mp4">
-  
-  <!-- Fallback text for browsers that do not support the video tag -->
-  Your browser does not support the video tag.
-	
- </div>
+    <!-- Background video (autoplay muted loop). Ensure the src path/filename is correct. -->
+    <video id="bgvideo" autoplay loop muted playsinline>
+      <source src="2026CoundownAnimated.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <script>
     // === Set your custom target date and time here ===
     // Format: YYYY, MM (0-based), DD, HH, MM, SS
-    // Example: 2025, 9, 29, 17, 0, 0  --> 2025-10-29 17:00:00 (October is month 9)
     const targetDate = new Date(2026, 0, 1, 0, 0, 0); // <-- SET YOUR TARGET HERE
-    // ================================================
-
-    // Set your custom end message here
     const endMessage = "00:00";
 
     function updateCountdown() {
@@ -97,7 +102,6 @@
 
       if (diff === 0) {
         document.getElementById('countdown').textContent = endMessage;
-        // Stops automatically, no restart
       } else {
         document.getElementById('countdown').textContent = display;
         setTimeout(updateCountdown, 1000);
@@ -106,6 +110,5 @@
 
     updateCountdown();
   </script>
-
 </body>
 </html>
