@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 
 <html lang="en">
-	<link rel="stylesheet" type="text/css" href="font/font.css" crossorigin>
 	
 <head>
 <title>COUNTDOWN 2026</title>
 </head>
 
     <style>
+   
+@font-face {
+      font-family: 'CountdownFont';
+      src: local('CountdownFont'),
+           url('fonts/MADETOMMY-Bold.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    } 	
+   
         body {
             margin: 0;
             padding: 0;
@@ -24,10 +33,12 @@
      
      .timerfont {
      position: absolute;
-      top: 370px;
-      left: 310px;
-      width: 600px;
+      top: 364px;
+      left: 136px;
+      width: 1000px;
       font-size: 150px;
+      color: purple;
+      font-family: CountdownFont;
       align-items: center;
         justify-content: center;
         text-align: center;
@@ -37,13 +48,18 @@
 
 <body>
 <div class=bg-page-temp>
-	
-<img src="1COUNTDOWNtest.jpg" alt="Countdown to 2026 background" width="1280" height="720">
-	
+
 <div class="timerfont" div id="countdown">
 00:00:00
 </div>
-		
+	
+<!-- The video tag with autoplay, loop, muted, and without controls -->
+<video autoplay loop muted style="width:100%; height:auto;">
+  <source src="2026CoundownAnimated.mp4" type="video/mp4">
+  
+  <!-- Fallback text for browsers that do not support the video tag -->
+  Your browser does not support the video tag.
+	
  </div>
 
   <script>
@@ -54,7 +70,7 @@
     // ================================================
 
     // Set your custom end message here
-    const endMessage = "NOW";
+    const endMessage = "00:00";
 
     function updateCountdown() {
       const now = new Date();
@@ -92,4 +108,4 @@
   </script>
 
 </body>
-  </html>
+</html>
