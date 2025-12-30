@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>COUNTDOWN 2026</title>
+
+  <style>
+    @font-face {
+      font-family: 'CountdownFont';
+      src: local('CountdownFont'),
+           url('fonts/MADETOMMY-Bold.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background-color: black; /* Set to black for smoother transitions */
+    }
+
+    .bg-page-temp {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+    }
+    
+    /* Fullscreen Button Styling */
+    #fullscreen-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    
+    #fullscreen-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    #fullscreen-btn svg {
+      fill: white;
+      width: 30px;
+      height: 30px;
+    }
+
+    #bgvideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .timerfont {
+      position: absolute;
+      top: 364px;
+      left: 136px;
+      width: 1000px;
+      font-size: 150px;
+      color: purple;
+      font-family: CountdownFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-page-temp">
+ 
+ <button id="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+      <svg id="fs-icon" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+    </button>
+    
+    <div class="timerfont" id="countdown">
+      00:00:00
+    </div>
+
+    <video id="bgvideo" autoplay loop muted playsinline>
+      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimated.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    // === CONFIGURATION ===
+    const targetDate = new Date(2026, 0, 1, 0, 0, 0); 
+    // Put the URL of the video you want to show AFTER the countdown finishes here:
+    const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedEND.mp4"; 
+
+// --- Fullscreen Logic ---
+    function toggleFullscreen() {
+      const elem = document.documentElement;
+      const icon = document.getElementById('fs-icon');
+      
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+        // Change icon to "Exit"
+        icon.innerHTML = '<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>';
+      } else {
+        document.exitFullscreen();
+        // Change icon to "Enter"
+        icon.innerHTML = '<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>';
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      let diff = targetDate - now;
+
+      // When the countdown reaches zero
+      if (diff <= 0) {
+        // 1. Hide the timer
+        document.getElementById('countdown').style.display = 'none';
+
+        // 2. Change the video source
+        const video = document.getElementById('bgvideo');
+        const source = document.getElementById('video-source');
+        
+        // Only change if it hasn't been changed yet (prevents looping the source change)
+        if (!video.src.includes(newYearVideoUrl)) {
+            video.pause();
+            source.src = newYearVideoUrl;
+            video.load(); // Required to tell the player to use the new source
+            video.play();
+        }
+        return; // Stop the timer loop
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      let display;
+      if (diff <= 3600 * 1000) {
+        display =
+          `${(minutes + hours * 60).toString().padStart(2, '0')}:` +
+          `${seconds.toString().padStart(2, '0')}`;
+      } else {
+        display =
+          `${hours.toString().padStart(2, '0')}:` +
+          `${minutes.toString().padStart(2, '0')}:` +
+          `${seconds.toString().padStart(2, '0')}`;
+      }
+
+      document.getElementById('countdown').textContent = display;
+      setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
+  </script>
+</body>
+</html>
