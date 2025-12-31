@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>COUNTDOWN 2026</title>
+  <title>COUNTDOWN 2026 MXQ</title>
 
   <style>
     @font-face {
@@ -30,33 +30,6 @@
       height: 720px;
       overflow: hidden;
     }
-    
-    /* Fullscreen Button Styling */
-    #fullscreen-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-    
-    #fullscreen-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    #fullscreen-btn svg {
-      fill: white;
-      width: 30px;
-      height: 30px;
-    }
 
     #bgvideo {
       position: absolute;
@@ -70,7 +43,7 @@
 
     .timerfont {
       position: absolute;
-      top: 364px;
+      top: 236px;
       left: 136px;
       width: 1000px;
       font-size: 150px;
@@ -86,44 +59,21 @@
 </head>
 <body>
   <div class="bg-page-temp">
- 
- <button id="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
-      <svg id="fs-icon" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-    </button>
-    
     <div class="timerfont" id="countdown">
       00:00:00
     </div>
 
     <video id="bgvideo" autoplay loop muted playsinline>
-      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimated.mp4" type="video/mp4">
+      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedv2r1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
 
   <script>
     // === CONFIGURATION ===
-    const targetDate = new Date(2025, 11, 30, 22, 20, 0); 
+    const targetDate = new Date(2026, 0, 1, 0, 0, 0); 
     // Put the URL of the video you want to show AFTER the countdown finishes here:
-    const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedEND.mp4"; 
-
-// --- Fullscreen Logic ---
-    function toggleFullscreen() {
-      const elem = document.documentElement;
-      const icon = document.getElementById('fs-icon');
-      
-      if (!document.fullscreenElement) {
-        elem.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable full-screen mode: ${err.message}`);
-        });
-        // Change icon to "Exit"
-        icon.innerHTML = '<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>';
-      } else {
-        document.exitFullscreen();
-        // Change icon to "Enter"
-        icon.innerHTML = '<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>';
-      }
-    }
+    const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedENDv2r1.mp4"; 
 
     function updateCountdown() {
       const now = new Date();
