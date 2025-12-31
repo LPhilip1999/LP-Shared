@@ -44,7 +44,7 @@
 
     .timerfont {
       position: absolute;
-      top: 172px;
+      top: 262px;
       left: 137px;
       width: 1000px;
       font-size: 205px;
@@ -81,14 +81,14 @@
 </head>
 <body>
   <div class="bg-page-temp" id="container">
-    <button id="fullscreen-btn">⛶ Fullscreen</button>
+    <button id="fullscreen-btn">⛶</button>
 
     <div class="timerfont" id="countdown">
       00:00:00
     </div>
 
     <video id="bgvideo" autoplay loop muted playsinline>
-      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedv3.mp4" type="video/mp4">
+      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedv4.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -96,7 +96,7 @@
   <script>
     // === CONFIGURATION ===
     const targetDate = new Date(2026, 0, 1, 0, 0, 0); 
-    const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedENDv2r1.mp4"; 
+    const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedENDv4.mp4"; 
 
 // === FULLSCREEN LOGIC (Updated for Older Chrome) ===
     const fsBtn = document.getElementById('fullscreen-btn');
