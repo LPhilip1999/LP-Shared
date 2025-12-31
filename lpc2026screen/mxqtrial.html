@@ -15,13 +15,14 @@
       font-display: swap;
     }
 
+
     html, body {
       margin: 0;
       padding: 0;
       width: 1280px;
       height: 720px;
       overflow: hidden;
-      background-color: black; /* Set to black for smoother transitions */
+      background-color: black;
     }
 
     .bg-page-temp {
@@ -43,10 +44,10 @@
 
     .timerfont {
       position: absolute;
-      top: 170px;
+      top: 172px;
       left: 137px;
       width: 1000px;
-      font-size: 208px;
+      font-size: 205px;
       color: purple;
       font-family: CountdownFont, sans-serif;
       display: flex;
@@ -54,11 +55,34 @@
       justify-content: center;
       text-align: center;
       z-index: 1;
+      pointer-events: none; /* Allows clicking through the text to the button if overlapped */
+    }
+
+    /* Fullscreen Button Styling */
+    #fullscreen-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 10px 15px;
+      background: rgba(128, 0, 128, 0.5); /* Semi-transparent purple */
+      color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: sans-serif;
+      transition: background 0.3s;
+    }
+
+    #fullscreen-btn:hover {
+      background: rgba(128, 0, 128, 0.8);
     }
   </style>
 </head>
 <body>
-  <div class="bg-page-temp">
+  <div class="bg-page-temp" id="container">
+    <button id="fullscreen-btn">⛶ Fullscreen</button>
+
     <div class="timerfont" id="countdown">
       00:00:00
     </div>
@@ -71,31 +95,40 @@
 
   <script>
     // === CONFIGURATION ===
-    const targetDate = new Date(2025, 11, 31, 12, 29, 0); 
-    // Put the URL of the video you want to show AFTER the countdown finishes here:
+    const targetDate = new Date(2026, 0, 1, 0, 0, 0); 
     const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedENDv2r1.mp4"; 
 
+    // === FULLSCREEN LOGIC ===
+    const fsBtn = document.getElementById('fullscreen-btn');
+    const container = document.getElementById('container');
+
+    fsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // === TIMER LOGIC ===
     function updateCountdown() {
       const now = new Date();
       let diff = targetDate - now;
 
-      // When the countdown reaches zero
       if (diff <= 0) {
-        // 1. Hide the timer
         document.getElementById('countdown').style.display = 'none';
-
-        // 2. Change the video source
         const video = document.getElementById('bgvideo');
         const source = document.getElementById('video-source');
         
-        // Only change if it hasn't been changed yet (prevents looping the source change)
         if (!video.src.includes(newYearVideoUrl)) {
             video.pause();
             source.src = newYearVideoUrl;
-            video.load(); // Required to tell the player to use the new source
+            video.load();
             video.play();
         }
-        return; // Stop the timer loop
+        return;
       }
 
       const hours = Math.floor(diff / (1000 * 60 * 60));
