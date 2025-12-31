@@ -98,17 +98,39 @@
     const targetDate = new Date(2026, 0, 1, 0, 0, 0); 
     const newYearVideoUrl = "https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/lpc2026screen/2026CoundownAnimatedENDv2r1.mp4"; 
 
-    // === FULLSCREEN LOGIC ===
+// === FULLSCREEN LOGIC (Updated for Older Chrome) ===
     const fsBtn = document.getElementById('fullscreen-btn');
     const container = document.getElementById('container');
 
     fsBtn.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        container.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable full-screen mode: ${err.message}`);
-        });
+      // Check if already in fullscreen using multiple property names
+      const isFullScreen = document.fullscreenElement || 
+                           document.webkitFullscreenElement || 
+                           document.mozFullScreenElement || 
+                           document.msFullscreenElement;
+
+      if (!isFullScreen) {
+        // Try the standard method first, then fall back to webkit
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          container.webkitRequestFullscreen();
+        } else if (container.mozRequestFullScreen) {
+          container.mozRequestFullScreen();
+        } else if (container.msRequestFullscreen) {
+          container.msRequestFullscreen();
+        }
       } else {
-        document.exitFullscreen();
+        // Exit fullscreen using multiple property names
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
       }
     });
 
