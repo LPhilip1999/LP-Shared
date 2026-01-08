@@ -25,12 +25,12 @@
   <div class="bg-page-temp">
     <div class="timerfont" id="display">00:00:00</div>
     <video id="bgvideo" autoplay loop muted playsinline>
-      <source id="video-source" src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/TraslacionClock/medias/DURATIONJAN9loop.mp4" type="video/mp4">
+      <source src="https://github.com/LPhilip1999/LP-Shared/raw/refs/heads/main/TraslacionClock/medias/DURATIONJAN9loop.mp4" type="video/mp4">
     </video>
   </div>
 
   <script>
-    // --- FIREBASE CONFIG ---
+    // !!! REPLACE WITH YOUR ACTUAL FIREBASE CONFIG !!!
     const firebaseConfig = {
             apiKey: "AIzaSyChe-th-e1RQJGnRxdIcpKgJ2AuIsILjTQ",
             authDomain: "traslacion-clock-2026.firebaseapp.com",
@@ -43,32 +43,26 @@
     const db = firebase.database();
 
     const display = document.getElementById('display');
-    let cloudStartTime = 0;
-    let isRunning = false;
+    let timerState = { startTime: 0, isRunning: false, isPaused: false, pauseTime: 0 };
 
-    // LISTEN FOR CLOUD UPDATES
     db.ref('traslacion').on('value', (snapshot) => {
         const data = snapshot.val();
-        if (data) {
-            cloudStartTime = data.startTime;
-            isRunning = data.isRunning;
-        }
+        if (data) timerState = data;
     });
 
     function updateClock() {
-      if (!isRunning || cloudStartTime === 0) {
+      if (!timerState.isRunning || timerState.startTime === 0) {
           display.textContent = "00:00:00";
           return;
       }
 
       const now = new Date().getTime();
-      const totalSeconds = Math.floor((now - cloudStartTime) / 1000);
+      const refTime = timerState.isPaused ? (timerState.pauseTime || now) : now;
+      const totalSeconds = Math.max(0, Math.floor((refTime - timerState.startTime) / 1000));
       
-      const displaySeconds = totalSeconds < 0 ? 0 : totalSeconds;
-
-      const hrs = Math.floor(displaySeconds / 3600).toString().padStart(2, '0');
-      const mins = Math.floor((displaySeconds % 3600) / 60).toString().padStart(2, '0');
-      const secs = (displaySeconds % 60).toString().padStart(2, '0');
+      const hrs = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
+      const mins = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
+      const secs = (totalSeconds % 60).toString().padStart(2, '0');
       display.textContent = `${hrs}:${mins}:${secs}`;
     }
 
