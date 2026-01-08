@@ -3,7 +3,6 @@
 <head>
     <title>Traslacion 2026 Manual Controller</title>
     <style>
-        /* Initially hide the content until authorized */
         #protected-content { display: none; }
         body { font-family: sans-serif; text-align: center; padding: 30px; background: #1a1a1a; color: white; }
         .control-box { background: #333; padding: 20px; border-radius: 10px; display: inline-block; }
@@ -20,7 +19,7 @@
         <h1>Traslacion 2026 Manual Entry</h1>
         <div class="control-box">
             <p>Enter the Exact Start Time of the Procession:</p>
-            <input type="datetime-local" id="startTimeInput" value="2026-01-09T04:30">
+            <input type="datetime-local" id="startTimeInput">
             <br>
             <button class="btn-set" onclick="startManualTimer()">SYNC & START</button>
             <button class="btn-stop" onclick="stopTimer()">STOP/FREEZE</button>
@@ -31,30 +30,52 @@
     </div>
 
     <script>
-        // PASSCODE LOGIC
-        const passcode = "5151"; // Change your passcode here
+        // --- PASSCODE PROTECTION ---
+        const passcode = "2026"; 
         const userEntry = prompt("Enter passcode to access timer controls:");
-
         if (userEntry === passcode) {
             document.getElementById('protected-content').style.display = 'block';
         } else {
-            alert("Incorrect passcode. Access denied.");
+            alert("Incorrect passcode.");
             document.body.innerHTML = "<h1>Unauthorized Access</h1>";
         }
 
-        // TIMER LOGIC
+        // --- PERSISTENCE LOGIC (Saving the Date) ---
+        const startTimeInput = document.getElementById('startTimeInput');
+
+        // Load saved date on page load
+        window.addEventListener('load', () => {
+            const savedDate = localStorage.getItem('savedStartTime');
+            if (savedDate) {
+                startTimeInput.value = savedDate;
+            } else {
+                // Default if nothing is saved
+                startTimeInput.value = "2026-01-09T04:30";
+            }
+        });
+
+        // Save date whenever it changes
+        startTimeInput.addEventListener('change', () => {
+            localStorage.setItem('savedStartTime', startTimeInput.value);
+        });
+
+        // --- TIMER LOGIC ---
         let intervalId = null;
 
         function startManualTimer() {
-            const inputVal = document.getElementById('startTimeInput').value;
+            const inputVal = startTimeInput.value;
             if (!inputVal) return alert("Please select a date and time!");
+
             const startTime = new Date(inputVal).getTime();
             if (intervalId) clearInterval(intervalId);
+
             document.getElementById('status').innerText = "Status: Calculating from " + inputVal;
+
             intervalId = setInterval(() => {
                 const now = new Date().getTime();
                 let diffInSeconds = Math.floor((now - startTime) / 1000);
                 if (diffInSeconds < 0) diffInSeconds = 0;
+
                 localStorage.setItem('traslacionDuration', diffInSeconds);
                 updateLocalDisplay(diffInSeconds);
             }, 1000);
