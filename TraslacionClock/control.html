@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <title>Traslacion 2026 Manual Controller</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
     <style>
         #protected-content { display: none; }
         body { font-family: sans-serif; text-align: center; padding: 30px; background: #1a1a1a; color: white; }
@@ -25,11 +27,24 @@
             <button class="btn-stop" onclick="stopTimer()">STOP/FREEZE</button>
             <button class="btn-reset" onclick="resetToZero()">RESET TO ZERO</button>
         </div>
-        <div class="status" id="status">Status: Waiting for input...</div>
+        <div class="status" id="status">Status: Waiting for cloud sync...</div>
         <h2 id="localDisplay">00:00:00</h2>
     </div>
 
     <script>
+        // --- FIREBASE INITIALIZATION ---
+        // REPLACE THIS WITH YOUR CONFIG FROM FIREBASE CONSOLE
+        const firebaseConfig = {
+            apiKey: "AIzaSyChe-th-e1RQJGnRxdIcpKgJ2AuIsILjTQ",
+            authDomain: "traslacion-clock-2026.firebaseapp.com",
+            databaseURL: "https://traslacion-clock-2026-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "traslacion-clock-2026",
+            storageBucket: "traslacion-clock-2026.firebasestorage.app",
+            appId: "1:506370432562:web:3ae603fce823dfa59ba62b"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
         // --- PASSCODE PROTECTION ---
         const passcode = "2026"; 
         const userEntry = prompt("Enter passcode to access timer controls:");
@@ -40,61 +55,55 @@
             document.body.innerHTML = "<h1>Unauthorized Access</h1>";
         }
 
-        // --- PERSISTENCE LOGIC (Saving the Date) ---
         const startTimeInput = document.getElementById('startTimeInput');
+        let localInterval = null;
 
-        // Load saved date on page load
-        window.addEventListener('load', () => {
-            const savedDate = localStorage.getItem('savedStartTime');
-            if (savedDate) {
-                startTimeInput.value = savedDate;
-            } else {
-                // Default if nothing is saved
-                startTimeInput.value = "2026-01-09T04:30";
-            }
-        });
-
-        // Save date whenever it changes
-        startTimeInput.addEventListener('change', () => {
-            localStorage.setItem('savedStartTime', startTimeInput.value);
-        });
-
-        // --- TIMER LOGIC ---
-        let intervalId = null;
-
+        // SYNC & START: Push to Cloud
         function startManualTimer() {
             const inputVal = startTimeInput.value;
             if (!inputVal) return alert("Please select a date and time!");
-
-            const startTime = new Date(inputVal).getTime();
-            if (intervalId) clearInterval(intervalId);
-
-            document.getElementById('status').innerText = "Status: Calculating from " + inputVal;
-
-            intervalId = setInterval(() => {
-                const now = new Date().getTime();
-                let diffInSeconds = Math.floor((now - startTime) / 1000);
-                if (diffInSeconds < 0) diffInSeconds = 0;
-
-                localStorage.setItem('traslacionDuration', diffInSeconds);
-                updateLocalDisplay(diffInSeconds);
-            }, 1000);
+            const startTimeMs = new Date(inputVal).getTime();
+            
+            db.ref('traslacion').set({
+                startTime: startTimeMs,
+                isRunning: true,
+                savedInput: inputVal
+            });
+            document.getElementById('status').innerText = "Status: Live (Synced to Cloud)";
         }
 
+        // STOP: Tell Cloud to stop
         function stopTimer() {
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = null;
-                document.getElementById('status').innerText = "Status: Frozen";
-            }
+            db.ref('traslacion/isRunning').set(false);
+            document.getElementById('status').innerText = "Status: Frozen in Cloud";
         }
 
+        // RESET: Set Cloud values to 0
         function resetToZero() {
-            stopTimer();
-            localStorage.setItem('traslacionDuration', '0');
-            updateLocalDisplay(0);
-            document.getElementById('status').innerText = "Status: Reset to Zero";
+            db.ref('traslacion').set({
+                startTime: 0,
+                isRunning: false,
+                savedInput: ""
+            });
+            document.getElementById('status').innerText = "Status: Reset Globally";
         }
+
+        // --- CLOUD LISTENER FOR LOCAL PREVIEW ---
+        db.ref('traslacion').on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (localInterval) clearInterval(localInterval);
+            
+            if (data && data.isRunning) {
+                startTimeInput.value = data.savedInput || "";
+                localInterval = setInterval(() => {
+                    const now = new Date().getTime();
+                    let diff = Math.floor((now - data.startTime) / 1000);
+                    updateLocalDisplay(diff < 0 ? 0 : diff);
+                }, 1000);
+            } else {
+                updateLocalDisplay(0);
+            }
+        });
 
         function updateLocalDisplay(totalSeconds) {
             const hrs = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
@@ -104,4 +113,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
