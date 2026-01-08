@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TRASLACION 2026 DURATION CLOCK</title>
+
+  <style>
+    @font-face {
+      font-family: 'NumberFont';
+      src: local('NumberFont'), url('font/MADETOMMY-Bold.otf') format('opentype');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+
+    html, body {
+      margin: 0; padding: 0; width: 1280px; height: 720px;
+      overflow: hidden; background-color: black;
+    }
+
+    .bg-page-temp { position: relative; width: 1280px; height: 720px; overflow: hidden; }
+
+    #bgvideo {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; object-fit: cover; z-index: 0;
+    }
+
+    .timerfont {
+      position: absolute;
+      top: 335px;
+      left: 594px; /* Your fixed coordinate */
+      width: 548px; /* Your fixed width */
+      font-size: 130px;
+      color: black;
+      font-family: NumberFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-page-temp">
+    <div class="timerfont" id="display">00:00:00</div>
+    <video id="bgvideo" autoplay loop muted playsinline>
+      <source id="video-source" src="image/DURATIONJAN9loop.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function updateClock() {
+      const totalSeconds = parseInt(localStorage.getItem('traslacionDuration') || '0');
+      const hrs = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
+      const mins = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
+      const secs = (totalSeconds % 60).toString().padStart(2, '0');
+      display.textContent = `${hrs}:${mins}:${secs}`;
+    }
+
+    // Update every 100ms and on storage changes from the controller
+    setInterval(updateClock, 100);
+    window.addEventListener('storage', updateClock);
+  </script>
+</body>
+</html>
