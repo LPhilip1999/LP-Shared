@@ -2,41 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TRASLACION 2026 DURATION CLOCK</title>
-
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
   <style>
     @font-face {
       font-family: 'NumberFont';
       src: local('NumberFont'), url('font/MADETOMMY-Bold.otf') format('opentype');
       font-weight: normal; font-style: normal; font-display: swap;
     }
-
-    html, body {
-      margin: 0; padding: 0; width: 1280px; height: 720px;
-      overflow: hidden; background-color: black;
-    }
-
+    html, body { margin: 0; padding: 0; width: 1280px; height: 720px; overflow: hidden; background-color: black; }
     .bg-page-temp { position: relative; width: 1280px; height: 720px; overflow: hidden; }
-
-    #bgvideo {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    }
-
+    #bgvideo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
     .timerfont {
-      position: absolute;
-      top: 335px;
-      left: 594px; /* Your fixed coordinate */
-      width: 548px; /* Your fixed width */
-      font-size: 130px;
-      color: black;
-      font-family: NumberFont, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index: 1;
+      position: absolute; top: 335px; left: 594px; width: 548px;
+      font-size: 130px; color: black; font-family: NumberFont, sans-serif;
+      display: flex; align-items: center; justify-content: center; text-align: center; z-index: 1;
     }
   </style>
 </head>
@@ -49,19 +30,49 @@
   </div>
 
   <script>
+    // --- FIREBASE CONFIG ---
+    const firebaseConfig = {
+            apiKey: "AIzaSyChe-th-e1RQJGnRxdIcpKgJ2AuIsILjTQ",
+            authDomain: "traslacion-clock-2026.firebaseapp.com",
+            databaseURL: "https://traslacion-clock-2026-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "traslacion-clock-2026",
+            storageBucket: "traslacion-clock-2026.firebasestorage.app",
+            appId: "1:506370432562:web:3ae603fce823dfa59ba62b"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
     const display = document.getElementById('display');
+    let cloudStartTime = 0;
+    let isRunning = false;
+
+    // LISTEN FOR CLOUD UPDATES
+    db.ref('traslacion').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            cloudStartTime = data.startTime;
+            isRunning = data.isRunning;
+        }
+    });
 
     function updateClock() {
-      const totalSeconds = parseInt(localStorage.getItem('traslacionDuration') || '0');
-      const hrs = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
-      const mins = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
-      const secs = (totalSeconds % 60).toString().padStart(2, '0');
+      if (!isRunning || cloudStartTime === 0) {
+          display.textContent = "00:00:00";
+          return;
+      }
+
+      const now = new Date().getTime();
+      const totalSeconds = Math.floor((now - cloudStartTime) / 1000);
+      
+      const displaySeconds = totalSeconds < 0 ? 0 : totalSeconds;
+
+      const hrs = Math.floor(displaySeconds / 3600).toString().padStart(2, '0');
+      const mins = Math.floor((displaySeconds % 3600) / 60).toString().padStart(2, '0');
+      const secs = (displaySeconds % 60).toString().padStart(2, '0');
       display.textContent = `${hrs}:${mins}:${secs}`;
     }
 
-    // Update every 100ms and on storage changes from the controller
     setInterval(updateClock, 100);
-    window.addEventListener('storage', updateClock);
   </script>
 </body>
 </html>
