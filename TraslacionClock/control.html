@@ -9,11 +9,13 @@
         body { font-family: sans-serif; text-align: center; padding: 30px; background: #1a1a1a; color: white; }
         .control-box { background: #333; padding: 20px; border-radius: 10px; display: inline-block; }
         input[type="datetime-local"] { font-size: 18px; padding: 10px; margin: 10px; border-radius: 5px; }
-        button { font-size: 18px; padding: 12px 25px; margin: 10px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
+        button { font-size: 18px; padding: 12px 25px; margin: 10px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; transition: 0.2s; }
+        button:active { transform: scale(0.95); }
         .btn-set { background: #007bff; color: white; }
+        .btn-pause { background: #fd7e14; color: white; }
         .btn-stop { background: #dc3545; color: white; }
         .btn-reset { background: #6c757d; color: white; }
-        .status { margin: 15px; font-size: 1.2em; color: #ffc107; }
+        .status { margin: 15px; font-size: 1.2em; color: #ffc107; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -24,16 +26,17 @@
             <input type="datetime-local" id="startTimeInput">
             <br>
             <button class="btn-set" onclick="startManualTimer()">SYNC & START</button>
+            <button id="pauseResumeBtn" class="btn-pause" onclick="togglePause()">PAUSE</button>
             <button class="btn-stop" onclick="stopTimer()">STOP/FREEZE</button>
             <button class="btn-reset" onclick="resetToZero()">RESET TO ZERO</button>
         </div>
-        <div class="status" id="status">Status: Waiting for cloud sync...</div>
+        <div class="status" id="status">Connecting to Cloud...</div>
         <h2 id="localDisplay">00:00:00</h2>
     </div>
 
     <script>
         // --- FIREBASE INITIALIZATION ---
-        // REPLACE THIS WITH YOUR CONFIG FROM FIREBASE CONSOLE
+        // !!! REPLACE WITH YOUR ACTUAL FIREBASE CONFIG !!!
         const firebaseConfig = {
             apiKey: "AIzaSyChe-th-e1RQJGnRxdIcpKgJ2AuIsILjTQ",
             authDomain: "traslacion-clock-2026.firebaseapp.com",
@@ -56,54 +59,73 @@
         }
 
         const startTimeInput = document.getElementById('startTimeInput');
+        const statusDiv = document.getElementById('status');
+        const pauseBtn = document.getElementById('pauseResumeBtn');
+        let currentIsPaused = false;
         let localInterval = null;
 
-        // SYNC & START: Push to Cloud
-        function startManualTimer() {
-            const inputVal = startTimeInput.value;
-            if (!inputVal) return alert("Please select a date and time!");
-            const startTimeMs = new Date(inputVal).getTime();
-            
-            db.ref('traslacion').set({
-                startTime: startTimeMs,
-                isRunning: true,
-                savedInput: inputVal
-            });
-            document.getElementById('status').innerText = "Status: Live (Synced to Cloud)";
-        }
-
-        // STOP: Tell Cloud to stop
-        function stopTimer() {
-            db.ref('traslacion/isRunning').set(false);
-            document.getElementById('status').innerText = "Status: Frozen in Cloud";
-        }
-
-        // RESET: Set Cloud values to 0
-        function resetToZero() {
-            db.ref('traslacion').set({
-                startTime: 0,
-                isRunning: false,
-                savedInput: ""
-            });
-            document.getElementById('status').innerText = "Status: Reset Globally";
-        }
-
-        // --- CLOUD LISTENER FOR LOCAL PREVIEW ---
+        // --- CLOUD LISTENER ---
         db.ref('traslacion').on('value', (snapshot) => {
             const data = snapshot.val();
             if (localInterval) clearInterval(localInterval);
             
             if (data && data.isRunning) {
+                currentIsPaused = data.isPaused || false;
+                pauseBtn.innerText = currentIsPaused ? "RESUME" : "PAUSE";
+                statusDiv.innerText = currentIsPaused ? "Status: PAUSED" : "Status: LIVE";
                 startTimeInput.value = data.savedInput || "";
+
                 localInterval = setInterval(() => {
                     const now = new Date().getTime();
-                    let diff = Math.floor((now - data.startTime) / 1000);
+                    const refTime = currentIsPaused ? data.pauseTime : now;
+                    let diff = Math.floor((refTime - data.startTime) / 1000);
                     updateLocalDisplay(diff < 0 ? 0 : diff);
                 }, 1000);
             } else {
+                statusDiv.innerText = "Status: Idle";
                 updateLocalDisplay(0);
             }
         });
+
+        function startManualTimer() {
+            const inputVal = startTimeInput.value;
+            if (!inputVal) return alert("Select time!");
+            const startTimeMs = new Date(inputVal).getTime();
+            
+            db.ref('traslacion').set({
+                startTime: startTimeMs,
+                isRunning: true,
+                isPaused: false,
+                savedInput: inputVal
+            });
+        }
+
+        function togglePause() {
+            const now = new Date().getTime();
+            db.ref('traslacion').once('value').then(snap => {
+                const data = snap.val();
+                if (!data || !data.isRunning) return;
+
+                if (!currentIsPaused) {
+                    db.ref('traslacion').update({ isPaused: true, pauseTime: now });
+                } else {
+                    const pauseDuration = now - data.pauseTime;
+                    db.ref('traslacion').update({
+                        isPaused: false,
+                        startTime: data.startTime + pauseDuration,
+                        pauseTime: null
+                    });
+                }
+            });
+        }
+
+        function stopTimer() {
+            db.ref('traslacion/isRunning').set(false);
+        }
+
+        function resetToZero() {
+            db.ref('traslacion').set({ startTime: 0, isRunning: false, isPaused: false });
+        }
 
         function updateLocalDisplay(totalSeconds) {
             const hrs = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
@@ -113,4 +135,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
