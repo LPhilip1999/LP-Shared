@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TRASLACION DURATION CLOCK GRAPHIC</title>
+  <style>
+    @font-face {
+      font-family: 'NumberFont';
+      src: local('NumberFont'), url('font/MADETOMMY-Bold.otf') format('opentype');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "TitleFont";
+      src: local('TitleFont'), url('font/MADETOMMY.otf') format('opentype');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    html, body { margin: 0; padding: 0; width: 1280px; height: 720px; overflow: hidden; background-color: transparent; }
+    
+    /* Added box-sizing to ensure borders don't change the width/height of elements */
+    * { box-sizing: border-box; }
+
+    .timerfont {
+      position: absolute; top: 335px; left: 295px; width: 700px; 
+      background-color: yellow;
+      /* Added Outline */
+      border: 10px solid black; 
+      border-top: none; /* Removes the border between the gray and yellow boxes */
+      /* --- YELLOW GRADIENT ADDED HERE --- */
+      background: linear-gradient(to bottom, #ffff00 0%, #ffcc00 100%);
+      
+      font-size: 140px; color: black; font-family: NumberFont, sans-serif;
+      display: flex; align-items: center; justify-content: center; text-align: center; 
+      z-index: 1; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;
+    }
+
+    .timebg {
+      position: absolute; top: 255px; left: 295px; width: 700px; height: 80px; 
+      color: white; font-size: 45px; 
+      background-color: gray;
+      /* Added Outline */
+      border: 10px solid black;
+      
+      display: flex; align-items: center; justify-content: center; text-align: center; 
+      font-family: TitleFont, sans-serif; border-top-left-radius: 25px; border-top-right-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-page-temp">
+    <div class="timebg">TRASLACION DURATION CLOCK</div>
+    <div class="timerfont" id="display">00:00:00</div>
+  </div>
+
+  <script>
+    const startDate = new Date('2026-01-09T03:58:00').getTime();
+    let freezeTime = null; 
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const effectiveEnd = (freezeTime && now >= new Date(freezeTime).getTime()) 
+                           ? new Date(freezeTime).getTime() 
+                           : now;
+
+      const difference = effectiveEnd - startDate;
+
+      if (difference < 0) {
+        document.getElementById("display").innerText = "00:00:00";
+        return;
+      }
+
+      const hours = Math.floor(difference / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("display").innerText = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      if (freezeTime && now >= new Date(freezeTime).getTime()) {
+        clearInterval(timerInterval);
+      }
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+
+    function freezeClock() {
+        freezeTime = new Date().toISOString();
+        updateTimer();
+    }
+  </script>
+</body>
+    </html>
