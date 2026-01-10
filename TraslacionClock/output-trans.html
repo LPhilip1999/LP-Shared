@@ -51,42 +51,6 @@
     <div class="timerfont" id="display">00:00:00</div>
   </div>
 
-  <script>
-    const startDate = new Date('2026-01-09T04:00:00').getTime();
-    let freezeTime = '2026-01-10T10:50:01'; 
-
-    function updateTimer() {
-      const now = new Date().getTime();
-      const effectiveEnd = (freezeTime && now >= new Date(freezeTime).getTime()) 
-                           ? new Date(freezeTime).getTime() 
-                           : now;
-
-      const difference = effectiveEnd - startDate;
-
-      if (difference < 0) {
-        document.getElementById("display").innerText = "00:00:00";
-        return;
-      }
-
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      document.getElementById("display").innerText = 
-        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-      if (freezeTime && now >= new Date(freezeTime).getTime()) {
-        clearInterval(timerInterval);
-      }
-    }
-
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-
-    function freezeClock() {
-        freezeTime = new Date().toISOString();
-        updateTimer();
-    }
-  </script>
+<script src="countup.js"></script>
 </body>
     </html>
