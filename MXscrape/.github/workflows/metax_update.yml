@@ -1,0 +1,34 @@
+name: MetaXPlay EPG Update
+
+on:
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Requests
+        run: pip install requests
+
+      - name: Run Scraper
+        run: python Scraper/fetch_epg.py # Pointing to the folder
+
+      - name: Commit and Push Updates
+        run: |
+          git config --global user.name "EPG-Bot"
+          git config --global user.email "bot@github.com"
+          git add Scraper/guide.xml Scraper/tvg-ids.txt # Adding files in folder
+          git commit -m "Auto-update MetaX EPG in Scraper folder" || exit 0
+          git push
