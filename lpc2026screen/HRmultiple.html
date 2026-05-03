@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Radio Monitor Pro - Anti-Hang Edition</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: #eee; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .card { background: #1e1e1e; padding: 15px; border-radius: 12px; border: 1px solid #333; }
+        .card.active { border-color: #00ff88; box-shadow: 0 0 10px rgba(0,255,136,0.2); }
+        .info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.8rem; }
+        .live-indicator { color: #00ff88; font-weight: bold; display: none; }
+        .active .live-indicator { display: inline; }
+        audio { width: 100%; filter: invert(1) hue-rotate(180deg); }
+        #log { margin-top: 20px; padding: 10px; background: #000; font-family: monospace; font-size: 0.75rem; color: #00ff00; height: 100px; overflow-y: auto; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center">Stream Monitor <span style="color:#00ff88">v2.1</span></h2>
+    
+    <div class="grid" id="master-grid"></div>
+    <div id="log">>> System Initialized. Click anywhere to start all streams.</div>
+
+    <script>
+        const stations = [
+            { name: "HR Manila", url: "https://hrmanila.radioca.st/stream" },
+            { name: "HR Dagupan", url: "https://dagupan.radioca.st/stream" },
+            { name: "HR Palawan", url: "https://palawan.radioca.st/stream" },
+            { name: "HR Naga", url: "https://hrnaga.radioca.st/stream" },
+            { name: "HR Legaspi", url: "https://legaspi.radioca.st/stream" },
+            { name: "HR Iloilo", url: "https://hriloilo.radioca.st/stream" },
+            { name: "HR Cebu", url: "https://hrcebu.radioca.st/stream" },
+            { name: "HR CDO", url: "https://hrcdo.radioca.st/stream" },
+            { name: "HR Davao", url: "https://hrdavao.radioca.st/stream" },
+            { name: "HR Gensan", url: "https://hrgensan.radioca.st/stream" }
+        ];
+
+        const grid = document.getElementById('master-grid');
+        const logBox = document.getElementById('log');
+        const players = [];
+        let lastPositions = new Array(stations.length).fill(0);
+
+        function addLog(msg) {
+            const time = new Date().toLocaleTimeString();
+            logBox.innerHTML += `<div>[${time}] ${msg}</div>`;
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        stations.forEach((station, i) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.id = `card-${i}`;
+            card.innerHTML = `
+                <div class="info">
+                    <strong>${station.name}</strong>
+                    <span class="live-indicator">● LIVE</span>
+                </div>
+                <audio id="audio-${i}" controls autoplay muted src="${station.url}" preload="auto" crossorigin="anonymous"></audio>
+            `;
+            grid.appendChild(card);
+            
+            const audio = document.getElementById(`audio-${i}`);
+            
+            // Auto-mute others logic
+            audio.onplay = () => {
+                if (!audio.muted) {
+                    players.forEach((p, idx) => { if(idx !== i) p.muted = true; });
+                }
+                document.getElementById(`card-${i}`).classList.add('active');
+            };
+
+            audio.onpause = () => document.getElementById(`card-${i}`).classList.remove('active');
+            
+            audio.onerror = () => forceReconnect(i, "Stream Error Detected");
+            
+            players.push(audio);
+        });
+
+        function forceReconnect(index, reason) {
+            const audio = players[index];
+            const name = stations[index].name;
+            addLog(`Reconnecting ${name}: ${reason}`);
+            
+            const isMuted = audio.muted;
+            const currentVol = audio.volume;
+            
+            audio.src = ""; // Clear buffer
+            audio.load();
+            audio.src = stations[index].url;
+            audio.muted = isMuted;
+            audio.volume = currentVol;
+            audio.play().catch(() => {});
+        }
+
+        // The "Progress Guard" - Runs every 15 seconds
+        setInterval(() => {
+            players.forEach((audio, i) => {
+                // If the stream is "playing" but the time hasn't changed, it's a silent hang
+                if (!audio.paused) {
+                    if (audio.currentTime === lastPositions[i] && audio.currentTime !== 0) {
+                        forceReconnect(i, "Silent Hang (Buffer Stuck)");
+                    }
+                    lastPositions[i] = audio.currentTime;
+                }
+                
+                // Active UI update
+                const card = document.getElementById(`card-${i}`);
+                if (!audio.muted && !audio.paused) card.classList.add('active');
+                else card.classList.remove('active');
+            });
+        }, 15000);
+
+        window.onclick = () => {
+            players.forEach(p => p.play());
+            addLog("All streams engaged.");
+        };
+    </script>
+</body>
+</html>
